@@ -24,6 +24,9 @@ class PriceData(models.Model):
     class Meta:
         ordering = ['-timestamp']
 
+    def __str__(self):
+        return f"{self.stock}"
+
 class GemStock(models.Model):
     stock = models.ForeignKey("core.Stock", on_delete=models.CASCADE, related_name='Gems')
     score = models.FloatField(null=True)
